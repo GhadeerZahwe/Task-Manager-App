@@ -63,8 +63,15 @@ function renderTasks(){
     taskStatus.innerText= statusVal;
     taskStatus.classList.add("status");
 
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("button-box");
+    const btnContentElement = document.createElement("span");
+    btnContentElement.innerText= task.completed? "Mark as Pending": "Mark as Completed";
+    btnContentElement.classList.add("green");
+    toggleButton.appendChild(btnContentElement);
     taskCard.appendChild(taskText);
     taskCard.appendChild(taskStatus);
+    taskCard.appendChild(toggleButton);
     taskContainer.appendChild(taskCard);
   });
 }
