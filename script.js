@@ -70,6 +70,12 @@ function renderTasks() {
       : "Mark as Completed";
     btnContentElement.classList.add("green");
     toggleButton.appendChild(btnContentElement);
+    toggleButton.addEventListener("click", () => {
+    tasks[index].completed= !tasks[index].completed;
+    saveTasks();
+    renderTasks();
+    })
+
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("button-box");
