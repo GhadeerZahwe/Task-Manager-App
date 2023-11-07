@@ -24,6 +24,16 @@ function handleFormSubmit(event) {
         completed:false
     };
     tasks.push(newTask);
-    // saveTasks();
+    saveTasks();
+    // clear after save
+    taskInput.value=" ";
+    // render tasks to show them as cards
+    renderTasks();
+
   }
+}
+
+// function to save the tasks
+function saveTasks(){
+    localStorage.setItem(tasks,JSON.stringify(tasks));
 }
