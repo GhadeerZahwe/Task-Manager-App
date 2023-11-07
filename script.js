@@ -97,9 +97,21 @@ function renderTasks() {
   });
 }
 
-// Confirm Button
+// Confirm Button EventListener
 confirmedBtn.addEventListener("click", ()=>{
     confirmElement.style.display="none";
     taskManagerContainer.classList.remove("overlay");
     deleteTask(indexToBeDeleted);
 })
+
+// Cancel Button EventListener
+cancelBtn.addEventListener("clicl", ()=>{
+    confirmElement.style.display="none";
+    taskManagerContainer.classList.remove("overlay");
+})
+
+
+// Function to delete task
+function deleteTask(index){
+    console.log("Delete", index);
+}
