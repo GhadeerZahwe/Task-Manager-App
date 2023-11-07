@@ -96,3 +96,10 @@ function renderTasks() {
     taskContainer.appendChild(taskCard);
   });
 }
+
+// Confirm Button
+confirmedBtn.addEventListener("click", ()=>{
+    confirmElement.style.display="none";
+    taskManagerContainer.classList.remove("overlay");
+    deleteTask(indexToBeDeleted);
+})
