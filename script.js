@@ -1,6 +1,6 @@
 // Object Array for local storage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
+let indexToBeDeleted= null;
 const taskManagerContainer = document.querySelector(".taskManager");
 const confirmElement = document.querySelector(".confirm");
 const confirmedBtn = confirmElement.querySelector(".confirmed");
@@ -83,6 +83,9 @@ function renderTasks() {
     delBtnContentElement.innerText = "Delete";
     delBtnContentElement.classList.add("red");
     deleteButton.appendChild(delBtnContentElement);
+    deleteButton.addEventListener("click",() => {
+     
+    })
 
     taskCard.appendChild(taskText);
     taskCard.appendChild(taskStatus);
