@@ -84,7 +84,9 @@ function renderTasks() {
     delBtnContentElement.classList.add("red");
     deleteButton.appendChild(delBtnContentElement);
     deleteButton.addEventListener("click",() => {
-     
+        indexToBeDeleted=index;
+        confirmElement.style.display="block";
+        taskManagerContainer.classList.add("overlay");
     })
 
     taskCard.appendChild(taskText);
