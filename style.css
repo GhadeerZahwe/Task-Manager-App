@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
     background: linear-gradient(135deg, #2c2c8a, #8a56c2);
     margin: 0;
     padding: 0;
@@ -12,6 +12,7 @@ header {
     padding: 20px;
     text-align: center;
     color: #fff;
+    height: 20vh;
 }
 
 /* Task Manager Card */
