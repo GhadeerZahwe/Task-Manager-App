@@ -31,3 +31,40 @@ h1 {
     margin: 0 0 1.2em 0;
 }
 
+
+#taskForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+.task-input {
+    display: flex;
+    align-items: center;
+}
+
+/* Task Manager Input */
+#taskInput {
+    flex: 1;
+    padding: 15px 12px;
+    margin-right: 10px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 5px 0 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+#taskInput::placeholder {
+    color: #777;
+}
+
+#taskInput:focus {
+    outline: none;
+    background-color: #e6e6e6;
+}
