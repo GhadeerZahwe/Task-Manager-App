@@ -49,6 +49,22 @@ function renderTasks(){
     taskCard.classList.add("taskCard");
     let classVal = "pending"
     let statusVal="Pending"
-    
+    if(task.completed)
+    {
+        classVal="completed";
+        statusVal="Completed";
+    }
+    taskCard.classList.add(classVal);
+     
+    const taskText = document.createElement("p");
+    taskText.innerText=task.text;
+
+    const taskStatus = document.createElement("p");
+    taskStatus.innerText= statusVal;
+    taskStatus.classList.add("status");
+
+    taskCard.appendChild(taskText);
+    taskCard.appendChild(taskStatus);
+    taskContainer.appendChild(taskCard);
   });
 }
