@@ -110,8 +110,9 @@ cancelBtn.addEventListener("clicl", ()=>{
     taskManagerContainer.classList.remove("overlay");
 })
 
-
 // Function to delete task
 function deleteTask(index){
-    console.log("Delete", index);
+    tasks.splice(index,1);
+    saveTasks();
+    renderTasks();
 }
