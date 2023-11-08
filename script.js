@@ -1,15 +1,15 @@
 // Object Array for local storage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let indexToBeDeleted= null;
+
 const taskManagerContainer = document.querySelector(".taskManager");
+const todoList = document.querySelector(".taskContainer");
 const confirmElement = document.querySelector(".confirm");
 const confirmedBtn = confirmElement.querySelector(".confirmed");
 const cancelBtn = confirmElement.querySelector(".cancel");
 
 // Event Listener for adding a task
-document
-  .getElementById("taskForm")
-  .addEventListener("submit", handleFormSubmit);
+document.getElementById("taskForm").addEventListener("submit", handleFormSubmit);
 
 // function to handle the form submit event
 function handleFormSubmit(event) {
@@ -169,4 +169,3 @@ function editTask(index) {
 //       return tasks.filter(task => !task.completed);
 //   }
 // }
-
