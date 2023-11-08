@@ -13,24 +13,28 @@ document
 
 // function to handle the form submit event
 function handleFormSubmit(event) {
-  // prevent default behaviour of submit form
-  event.preventDefault();
-  const taskInput = document.getElementById("taskInput");
-  // trim to print the value without spaces
-  const taskValue = taskInput.value.trim();
-  if (taskValue !== " ") {
-    const newTask = {
-      text: taskValue,
-      completed: false,
-    };
-    tasks.push(newTask);
-    saveTasks();
-    // clear after save
-    taskInput.value = " ";
-    // render tasks to show them as cards
-    renderTasks();
+    // prevent default behaviour of submit form
+    event.preventDefault();
+    const taskInput = document.getElementById("taskInput");
+    // trim to print the value without spaces
+    const taskValue = taskInput.value.trim();
+    if (taskValue !== "") { // Check if the task value is not empty
+      const newTask = {
+        text: taskValue,
+        completed: false,
+      };
+      tasks.push(newTask);
+      saveTasks();
+      // clear after save
+      taskInput.value = "";
+      // render tasks to show them as cards
+      renderTasks();
+    } else {
+      // Handle the case when the task value is empty
+      alert("Please enter a non-empty task.");
+    }
   }
-}
+  
 
 // function to save the tasks
 function saveTasks() {
