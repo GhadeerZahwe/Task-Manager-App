@@ -21,7 +21,7 @@ function handleFormSubmit(event) {
     if (taskValue !== "") { // Check if the task value is not empty
       const newTask = {
         text: taskValue,
-        completed: false,
+        completed: false
       };
       tasks.push(newTask);
       saveTasks();
@@ -46,13 +46,14 @@ renderTasks();
 
 // function to render the tasks
 function renderTasks() {
+
   const taskContainer = document.getElementById("taskContainer");
   taskContainer.innerHTML = " ";
   tasks.forEach((task, index) => {
     const taskCard = document.createElement("div");
     taskCard.classList.add("taskCard");
-    let classVal = "pending";
-    let statusVal = "Pending";
+    let classVal = "active";
+    let statusVal = "Active";
     if (task.completed) {
       classVal = "completed";
       statusVal = "Completed";
@@ -70,7 +71,7 @@ function renderTasks() {
     toggleButton.classList.add("button-box");
     const btnContentElement = document.createElement("span");
     btnContentElement.innerText = task.completed
-      ? "Mark as Pending"
+      ? "Mark as Active"
       : "Mark as Completed";
     btnContentElement.classList.add("green");
     toggleButton.appendChild(btnContentElement);
@@ -157,3 +158,15 @@ function editTask(index) {
     editModal.style.display = 'none';
   });
 }
+
+
+// function filterTasksByStatus(status) {
+//   if (status === "all") {
+//       return tasks;
+//   } else if (status === "completed") {
+//       return tasks.filter(task => task.completed);
+//   } else if (status === "incomplete") {
+//       return tasks.filter(task => !task.completed);
+//   }
+// }
+
