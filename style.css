@@ -273,3 +273,57 @@ color: #fff;
 .confirm button:active {
     background: #D6D6D6;
 }
+/* Add this to your style.css file */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    border-radius: 10px;
+}
+
+.modal-header h2 {
+    margin-top: 0;
+}
+
+.modal-body input {
+    width: 90%;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.modal-footer button:first-child {
+    background-color: #4caf50;
+    color: white;
+}
+
+.modal-footer button:last-child {
+    background-color: #f44336;
+    color: white;
+}

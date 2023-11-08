@@ -93,9 +93,20 @@ function renderTasks() {
         taskManagerContainer.classList.add("overlay");
     })
 
+    const editButton = document.createElement("button");
+    editButton.classList.add("button-box");
+    const editBtnContentElement = document.createElement("span");
+    editBtnContentElement.innerText = "Edit";
+    editBtnContentElement.classList.add("blue");
+    editButton.appendChild(editBtnContentElement);
+    editButton.addEventListener("click", () => {
+      editTask(index);
+    });
+
     taskCard.appendChild(taskText);
     taskCard.appendChild(taskStatus);
     taskCard.appendChild(toggleButton);
+    taskCard.appendChild(editButton);
     taskCard.appendChild(deleteButton);
     taskContainer.appendChild(taskCard);
   });
@@ -109,7 +120,7 @@ confirmedBtn.addEventListener("click", ()=>{
 })
 
 // Cancel Button EventListener
-cancelBtn.addEventListener("clicl", ()=>{
+cancelBtn.addEventListener("click", ()=>{
     confirmElement.style.display="none";
     taskManagerContainer.classList.remove("overlay");
 })
@@ -119,4 +130,30 @@ function deleteTask(index){
     tasks.splice(index,1);
     saveTasks();
     renderTasks();
+}
+
+// Edit Button Event Listener
+function editTask(index) {
+  const editModal = document.getElementById('editModal');
+  const editTaskInput = document.getElementById('editTaskInput');
+  editModal.style.display = 'block';
+  editTaskInput.value = tasks[index].text;
+
+  const editSaveBtn = document.getElementById('editSaveBtn');
+  const editCancelBtn = document.getElementById('editCancelBtn');
+
+  editSaveBtn.addEventListener('click', () => {
+    if (editTaskInput.value.trim() !== '') {
+      tasks[index].text = editTaskInput.value.trim();
+      saveTasks();
+      renderTasks();
+      editModal.style.display = 'none';
+    } else {
+      alert('Please enter a non-empty task.');
+    }
+  });
+
+  editCancelBtn.addEventListener('click', () => {
+    editModal.style.display = 'none';
+  });
 }
