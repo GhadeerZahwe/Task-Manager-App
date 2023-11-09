@@ -176,3 +176,63 @@ all.addEventListener("click", () => {
   renderTasks();
 });
 
+// Function to render the filtered tasks
+function renderFilteredTasks(filteredTasks) {
+  const taskContainer = document.getElementById("taskContainer");
+  taskContainer.innerHTML = "";
+  filteredTasks.forEach((task, index) => {
+    const taskCard = document.createElement("div");
+    taskCard.classList.add("taskCard");
+    let classVal = task.completed ? "completed" : "active";
+    let statusVal = task.completed ? "Completed" : "Active";
+    taskCard.classList.add(classVal);
+
+    const taskText = document.createElement("p");
+    taskText.innerText = task.text;
+
+    const taskStatus = document.createElement("p");
+    taskStatus.innerText = statusVal;
+    taskStatus.classList.add("status");
+
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("button-box");
+    const btnContentElement = document.createElement("span");
+    btnContentElement.innerText = task.completed ? "Mark as Active" : "Mark as Completed";
+    btnContentElement.classList.add("green");
+    toggleButton.appendChild(btnContentElement);
+    toggleButton.addEventListener("click", () => {
+      tasks[index].completed = !tasks[index].completed;
+      saveTasks();
+      renderFilteredTasks(filteredTasks);
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("button-box");
+    const delBtnContentElement = document.createElement("span");
+    delBtnContentElement.innerText = "Delete";
+    delBtnContentElement.classList.add("red");
+    deleteButton.appendChild(delBtnContentElement);
+    deleteButton.addEventListener("click", () => {
+      indexToBeDeleted = tasks.findIndex((t) => t === task);
+      confirmElement.style.display = "block";
+      taskManagerContainer.classList.add("overlay");
+    });
+
+    const editButton = document.createElement("button");
+    editButton.classList.add("button-box");
+    const editBtnContentElement = document.createElement("span");
+    editBtnContentElement.innerText = "Edit";
+    editBtnContentElement.classList.add("blue");
+    editButton.appendChild(editBtnContentElement);
+    editButton.addEventListener("click", () => {
+      editTask(index);
+    });
+
+    taskCard.appendChild(taskText);
+    taskCard.appendChild(taskStatus);
+    taskCard.appendChild(toggleButton);
+    taskCard.appendChild(editButton);
+    taskCard.appendChild(deleteButton);
+    taskContainer.appendChild(taskCard);
+  });
+}
