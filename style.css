@@ -98,7 +98,6 @@ button:hover {
 }
 
 /* Task Manager Card */
-
 .taskCard {
     display: flex;
     flex-direction: column;
@@ -214,7 +213,7 @@ button:hover {
     }
 }
 
-
+/* confirm Pop-up */
 .confirm {
     display: none;
     position: absolute;

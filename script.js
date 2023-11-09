@@ -1,4 +1,4 @@
-// Object Array for local storage
+// Array for local storage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let indexToBeDeleted = null;
 
@@ -9,7 +9,9 @@ const confirmedBtn = confirmElement.querySelector(".confirmed");
 const cancelBtn = confirmElement.querySelector(".cancel");
 
 // Event Listener for adding a task
-document.getElementById("taskForm").addEventListener("submit", handleFormSubmit);
+document
+  .getElementById("taskForm")
+  .addEventListener("submit", handleFormSubmit);
 
 // function to handle the form submit event
 function handleFormSubmit(event) {
@@ -80,6 +82,7 @@ function renderTasks() {
       renderTasks();
     });
 
+    // Delete
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("button-box");
     const delBtnContentElement = document.createElement("span");
@@ -92,6 +95,7 @@ function renderTasks() {
       taskManagerContainer.classList.add("overlay");
     });
 
+    // Edit
     const editButton = document.createElement("button");
     editButton.classList.add("button-box");
     const editBtnContentElement = document.createElement("span");
@@ -141,6 +145,7 @@ function editTask(index) {
   const editSaveBtn = document.getElementById("editSaveBtn");
   const editCancelBtn = document.getElementById("editCancelBtn");
 
+  // Save for edit
   editSaveBtn.addEventListener("click", () => {
     if (editTaskInput.value.trim() !== "") {
       tasks[index].text = editTaskInput.value.trim();
@@ -170,7 +175,6 @@ activeTasks.addEventListener("click", () => {
   renderFilteredTasks(filteredTasks);
 });
 
-
 const all = document.getElementById("allTasks");
 all.addEventListener("click", () => {
   renderTasks();
@@ -197,7 +201,9 @@ function renderFilteredTasks(filteredTasks) {
     const toggleButton = document.createElement("button");
     toggleButton.classList.add("button-box");
     const btnContentElement = document.createElement("span");
-    btnContentElement.innerText = task.completed ? "Mark as Active" : "Mark as Completed";
+    btnContentElement.innerText = task.completed
+      ? "Mark as Active"
+      : "Mark as Completed";
     btnContentElement.classList.add("green");
     toggleButton.appendChild(btnContentElement);
     toggleButton.addEventListener("click", () => {
